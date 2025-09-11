@@ -8,17 +8,20 @@ import { Observable } from 'rxjs';
 })
 export class ConstituentsService {
   private http = inject(HttpClient);
-  private baseURL = '@assets/json-angular/';
+  private baseURL = 'assets/json-angular/';
   constructor() {}
 
-  getConstituents(params: any): Observable<Constituens> {
+  getConstituents(path: string): Observable<Constituens> {
     // const httParams = new HttpParams()
     //   .set('page[number]', params['page[number]'])
     //   .set('page[size]', params['page[size]'])
     //   .set('sort', JSON.stringify(params.sort || 'name'))
     //   .set('fields', JSON.stringify(params.fields || {}));
-    return this.http.get<Constituens>(this.baseURL + '/constituyentes/constituensList.json', {
-      //   params: httParams,
-    });
+    return this.http.get<Constituens>(
+      this.baseURL + 'constituyentes/constituents-' + path + '.json',
+      {
+        //   params: httParams,
+      },
+    );
   }
 }

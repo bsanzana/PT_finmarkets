@@ -1,24 +1,24 @@
-<div class="card">
+<div class="card max-w-5xl">
   <p-chart type="line" [data]="data()" [options]="options()" class="h-[30rem]" />
-</div>
 
-<div class="card flex justify-center">
-  <p-selectbutton
-    [options]="stateOptions"
-    [(ngModel)]="buttonChart"
-    optionLabel="label"
-    optionValue="value"
-    aria-labelledby="basic"
-    class="text-gray-200"
-    (onChange)="onChangeChart()"
-  />
+  <div class="card flex justify-center">
+    <p-selectbutton
+      [options]="stateOptions"
+      [(ngModel)]="buttonChart"
+      optionLabel="label"
+      optionValue="value"
+      aria-labelledby="basic"
+      class="text-gray-200"
+      (onChange)="onChangeChart()"
+    />
 
-  <p-datepicker
-    [(ngModel)]="rangeDates"
-    selectionMode="range"
-    [iconDisplay]="'input'"
-    [showIcon]="true"
-    inputId="icondisplay"
-  >
-  </p-datepicker>
+    <p-datepicker
+      [(ngModel)]="rangeDates"
+      selectionMode="range"
+      [iconDisplay]="'input'"
+      [showIcon]="true"
+      inputId="icondisplay"
+    >
+    </p-datepicker>
+  </div>
 </div>

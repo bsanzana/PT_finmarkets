@@ -4,7 +4,7 @@ export interface Constituens {
   data: Data;
 }
 
-export interface Data {
+interface Data {
   info: Info;
   constituents: Constituent[];
 }
@@ -26,13 +26,13 @@ export interface Constituent {
   performanceRelative: number;
 }
 
-export enum Tend {
+enum Tend {
   Down = 'down',
   Same = 'same',
   Up = 'up',
 }
 
-export interface Info {
+interface Info {
   name: string;
   shortName: string;
   countryName: string;

@@ -21,8 +21,6 @@ import { ChartComponent } from './components/chart/chart.component';
     SearchBarComponent,
     SummaryComponent,
     HeaderComponent,
-    InstrumentItemComponent,
-    InstrumentListComponent,
     TabComponent,
     ChartComponent,
   ],

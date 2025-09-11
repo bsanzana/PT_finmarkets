@@ -1,1 +1,35 @@
-<p>tab works!</p>,
+<div class="card">
+  <p-tabs [value]="activeTab()" (valueChange)="onTabChange($event)">
+    <p-tablist>
+      <p-tab value="0">IPSA</p-tab>
+      <p-tab value="1">IGPA</p-tab>
+      <p-tab value="2">NASDAQ</p-tab>
+      <p-tab value="3">DOW JONES</p-tab>
+      <p-tab value="4">SP/BVL</p-tab>
+    </p-tablist>
+    <p-tabpanels>
+      <!-- Solo renderizar el tab activo -->
+      <p-tabpanel [value]="activeTab()">
+        <p class="m-0">
+          @switch (activeTab()) {
+            @case ('0') {
+              <app-instrument-list indexSelected="IPSA"></app-instrument-list>
+            }
+            @case ('1') {
+              <app-instrument-list indexSelected="IGPA"></app-instrument-list>
+            }
+            @case ('2') {
+              <app-instrument-list indexSelected="NASDAQ"></app-instrument-list>
+            }
+            @case ('3') {
+              <app-instrument-list indexSelected="DOW JONES"></app-instrument-list>
+            }
+            @case ('4') {
+              <app-instrument-list indexSelected="SP/BVL"></app-instrument-list>
+            }
+          }
+        </p>
+      </p-tabpanel>
+    </p-tabpanels>
+  </p-tabs>
+</div>
