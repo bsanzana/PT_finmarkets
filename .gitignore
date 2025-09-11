@@ -140,3 +140,4 @@ vite.config.ts.timestamp-*
 pt-finmarkets/pnpm-lock.yaml
 pt-finmarkets/.editorconfig
 .vscode/extensions.json
+.DS_Store
