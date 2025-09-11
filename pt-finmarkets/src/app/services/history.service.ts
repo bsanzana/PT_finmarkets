@@ -3,6 +3,7 @@ import { effect, inject, Injectable, signal } from '@angular/core';
 import { Constituens } from '@app/interfaces/constituens.interface';
 import { Observable } from 'rxjs';
 import { Index } from '../interfaces/index.interface';
+import { History } from '@interfaces/history.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -20,13 +21,13 @@ export class HistoryService {
   private http = inject(HttpClient);
   private baseURL = 'assets/json-angular';
 
-  getHistory(index: string): Observable<Constituens> {
+  getHistory(): Observable<History> {
     // const httParams = new HttpParams()
     //   .set('page[number]', params['page[number]'])
     //   .set('page[size]', params['page[size]'])
     //   .set('sort', JSON.stringify(params.sort || 'name'))
     //   .set('fields', JSON.stringify(params.fields || {}));
-    return this.http.get<Constituens>(this.baseURL + '/history/' + index, {
+    return this.http.get<History>(this.baseURL + '/history/' + this.selectedIndex().path, {
       //   params: httParams,
     });
   }

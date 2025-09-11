@@ -22,15 +22,4 @@ export class SearchBarComponent implements OnInit {
 
     this.historyService.selectedIndex.set(index);
   }
-
-  loadData() {
-    this.historyService.getHistory('history-AGUAS-A.json').subscribe({
-      next: (res) => {
-        console.log(res);
-      },
-      error: (error: any) => {
-        console.error(error);
-      },
-    });
-  }
 }

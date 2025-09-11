@@ -7,11 +7,25 @@ import { SearchBarComponent } from '@app/components/search-bar/search-bar.compon
 import { HeaderComponent } from '@components/header/header.component';
 import { SummaryComponent } from './components/summary/summary.component';
 import { Header } from 'primeng/api';
+import { InstrumentItemComponent } from './components/instrument-item/instrument-item.component';
+import { InstrumentListComponent } from './components/instrument-list/instrument-list.component';
+import { TabComponent } from './components/tab/tab.component';
+import { ChartComponent } from './components/chart/chart.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [FormsModule, InputTextModule, SearchBarComponent, SummaryComponent, HeaderComponent],
+  imports: [
+    FormsModule,
+    InputTextModule,
+    SearchBarComponent,
+    SummaryComponent,
+    HeaderComponent,
+    InstrumentItemComponent,
+    InstrumentListComponent,
+    TabComponent,
+    ChartComponent,
+  ],
   templateUrl: './app.html',
   styleUrls: ['./app.css'],
 })

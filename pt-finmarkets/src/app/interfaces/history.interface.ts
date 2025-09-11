@@ -4,7 +4,7 @@ export interface History {
   data: Data;
 }
 
-export interface Data {
+interface Data {
   info: Info;
   chart: Chart[];
 }
@@ -24,13 +24,13 @@ export interface Chart {
   tend: Tend;
 }
 
-export enum Tend {
+enum Tend {
   Down = 'down',
   Same = 'same',
   Up = 'up',
 }
 
-export interface Info {
+interface Info {
   name: string;
   shortName: string;
   countryName: string;
