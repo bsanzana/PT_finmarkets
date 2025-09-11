@@ -1,3 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
-@import "tailwindcss";
+@import 'tailwindcss';
 @plugin "tailwindcss-primeui";
+@import 'primeicons/primeicons.css';
+
+.p-tablist-tab-list {
+  background-color: transparent !important;
+}
+
+.p-tabpanels {
+  background-color: transparent !important;
+  padding: 0px !important;
+  padding-top: 14px !important;
+}

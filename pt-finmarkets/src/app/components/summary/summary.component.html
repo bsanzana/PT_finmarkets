@@ -1,0 +1,254 @@
+<div
+  class="card bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-4 h-fit"
+>
+  <p-tabs value="0">
+    <p-tablist>
+      <p-tab class="text-lg font-semibold text-gray-900 dark:text-white" value="1">Resumen</p-tab>
+      <p-tab class="text-lg font-semibold text-gray-900 dark:text-white" value="0">Detalles</p-tab>
+    </p-tablist>
+    <p-tabpanels>
+      @if (resumenIndexSelected()) {
+        <p-tabpanel value="0" class="p-0">
+          <div class="mb-2 border-b border-gray-200 dark:border-gray-700">
+            <div class="flex justify-between items-center text-xs text-gray-400 mb-2">
+              <span>Última actualización</span>
+              <span>{{ resumenIndexSelected()!.data.price.askDatetime }}</span>
+            </div>
+          </div>
+          <!-- Summary data -->
+          <div class="space-y-1">
+            <div class="flex justify-between items-center py-1">
+              <!-- Label -->
+              <span class="text-sm text-gray-200 dark:text-gray-200 font-medium"> MERCADO </span>
+
+              <!-- Value -->
+              <span class="text-sm font-semibold">
+                {{ resumenIndexSelected()!.data.info.marketName }}
+              </span>
+            </div>
+
+            <div class="flex justify-between items-center py-1">
+              <!-- Label -->
+              <span class="text-sm text-gray-200 dark:text-gray-200 font-medium"> APERTURA </span>
+
+              <!-- Value -->
+              <span class="text-sm font-semibold">
+                {{ resumenIndexSelected()!.data.price.openPrice }}
+              </span>
+            </div>
+
+            <div class="flex justify-between items-center py-1">
+              <!-- Label -->
+              <span class="text-sm text-gray-200 dark:text-gray-200 font-medium">
+                CIERRE ANTERIOR
+              </span>
+
+              <!-- Value -->
+              <span class="text-sm font-semibold">
+                {{ resumenIndexSelected()!.data.price.closePrice }}
+              </span>
+            </div>
+
+            <div class="flex justify-between items-center py-1">
+              <!-- Label -->
+              <span class="text-sm text-gray-200 dark:text-gray-200 font-medium">
+                MÁXIMO DIARIO
+              </span>
+
+              <!-- Value -->
+              <span class="text-sm font-semibold">
+                {{ resumenIndexSelected()!.data.price.maxDay }}
+              </span>
+            </div>
+
+            <div class="flex justify-between items-center py-1">
+              <!-- Label -->
+              <span class="text-sm text-gray-200 dark:text-gray-200 font-medium">
+                MÍNIMO DIARIO
+              </span>
+
+              <!-- Value -->
+              <span class="text-sm font-semibold">
+                {{ resumenIndexSelected()!.data.price.minDay }}
+              </span>
+            </div>
+
+            <div class="flex justify-between items-center py-1">
+              <!-- Label -->
+              <span class="text-sm text-gray-200 dark:text-gray-200 font-medium">
+                MÁXIMO 52 SEMANAS
+              </span>
+
+              <!-- Value -->
+              <span class="text-sm font-semibold">
+                {{ resumenIndexSelected()!.data.price.max52W }}
+              </span>
+            </div>
+
+            <div class="flex justify-between items-center py-1">
+              <!-- Label -->
+              <span class="text-sm text-gray-200 dark:text-gray-200 font-medium">
+                MÍNIMO 52 SEMANAS
+              </span>
+
+              <!-- Value -->
+              <span class="text-sm font-semibold">
+                {{ resumenIndexSelected()!.data.price.min52W }}
+              </span>
+            </div>
+
+            <div class="flex justify-between items-center py-5">
+              <!-- Label -->
+              <span class="text-sm text-gray-200 dark:text-gray-200 font-medium">
+                Variación**
+              </span>
+
+              <!-- Value -->
+              <span class="text-sm font-semibold"> % </span>
+            </div>
+          </div>
+
+          <div class="mb-2 border-t border-gray-200 dark:border-gray-700">
+            <div class="flex justify-between items-center py-1">
+              <!-- Label -->
+              <span class="text-sm text-gray-200 dark:text-gray-200 font-medium"> 1 MES </span>
+
+              <!-- Value -->
+              <span
+                class="text-sm font-semibold"
+                [class]="
+                  resumenIndexSelected()!.data.price.pct30D >= 0
+                    ? 'text-green-600 dark:text-green-400'
+                    : 'text-red-600 dark:text-red-400'
+                "
+              >
+                {{ resumenIndexSelected()!.data.price.pct30D | number: '1.0-2' }}%
+              </span>
+            </div>
+
+            <div class="flex justify-between items-center py-1">
+              <!-- Label -->
+              <span class="text-sm text-gray-200 dark:text-gray-200 font-medium"> 1 MES </span>
+
+              <!-- Value -->
+              <span
+                class="text-sm font-semibold"
+                [class]="
+                  resumenIndexSelected()!.data.price.pctRelW52 >= 0
+                    ? 'text-green-600 dark:text-green-400'
+                    : 'text-red-600 dark:text-red-400'
+                "
+              >
+                {{ resumenIndexSelected()!.data.price.pctRelW52 | number: '1.0-2' }}%
+              </span>
+            </div>
+
+            <div class="flex justify-between items-center py-1">
+              <!-- Label -->
+              <span class="text-sm text-gray-200 dark:text-gray-200 font-medium"> 1 MES </span>
+
+              <!-- Value -->
+              <span
+                class="text-sm font-semibold"
+                [class]="
+                  resumenIndexSelected()!.data.price.pctRelCY >= 0
+                    ? 'text-green-600 dark:text-green-400'
+                    : 'text-red-600 dark:text-red-400'
+                "
+              >
+                {{ resumenIndexSelected()!.data.price.pctRelCY | number: '1.0-2' }}%
+              </span>
+            </div>
+          </div>
+
+          <!-- Additional info section if needed -->
+        </p-tabpanel>
+      }
+      <p-tabpanel value="1">
+        <p class="m-0">
+          <p-tabpanel value="1" class="p-0">
+            @if (resumenIndexSelected()) {
+              <div class="space-y-2">
+                <div class="flex justify-between items-center py-1">
+                  <span class="text-sm text-gray-400 dark:text-gray-400 font-medium"
+                    >Nombre completo</span
+                  >
+                  <span class="text-sm font-semibold">
+                    {{ resumenIndexSelected()!.data.info.name }}
+                  </span>
+                </div>
+                <div class="flex justify-between items-center py-1">
+                  <span class="text-sm text-gray-400 dark:text-gray-400 font-medium"
+                    >Código instrumento</span
+                  >
+                  <span class="text-sm font-semibold">
+                    {{ resumenIndexSelected()!.data.info.codeInstrument }}
+                  </span>
+                </div>
+                <div class="flex justify-between items-center py-1">
+                  <span class="text-sm text-gray-400 dark:text-gray-400 font-medium"
+                    >Nombre corto</span
+                  >
+                  <span class="text-sm font-semibold">
+                    {{ resumenIndexSelected()!.data.info.shortName }}
+                  </span>
+                </div>
+                <div class="flex justify-between items-center py-1">
+                  <span class="text-sm text-gray-400 dark:text-gray-400 font-medium">País</span>
+                  <span class="text-sm font-semibold">
+                    {{ resumenIndexSelected()!.data.info.countryName }}
+                  </span>
+                </div>
+                <div class="flex justify-between items-center py-1">
+                  <span class="text-sm text-gray-400 dark:text-gray-400 font-medium">Moneda</span>
+                  <span class="text-sm font-semibold">
+                    {{ resumenIndexSelected()!.data.info.currencyName }}
+                    ({{ resumenIndexSelected()!.data.info.currencySymbol }})
+                  </span>
+                </div>
+                <div class="flex justify-between items-center py-1">
+                  <span class="text-sm text-gray-400 dark:text-gray-400 font-medium">Mercado</span>
+                  <span class="text-sm font-semibold">
+                    {{ resumenIndexSelected()!.data.info.marketName }}
+                  </span>
+                </div>
+                <div class="flex justify-between items-center py-1">
+                  <span class="text-sm text-gray-400 dark:text-gray-400 font-medium"
+                    >Horario de apertura</span
+                  >
+                  <span class="text-sm font-semibold">
+                    {{ resumenIndexSelected()!.data.info.hourOpen }}
+                  </span>
+                </div>
+                <div class="flex justify-between items-center py-1">
+                  <span class="text-sm text-gray-400 dark:text-gray-400 font-medium"
+                    >Horario de cierre</span
+                  >
+                  <span class="text-sm font-semibold">
+                    {{ resumenIndexSelected()!.data.info.hourClose }}
+                  </span>
+                </div>
+                <div class="flex justify-between items-center py-1">
+                  <span class="text-sm text-gray-400 dark:text-gray-400 font-medium"
+                    >¿Está operando?</span
+                  >
+                  <span class="text-sm font-semibold">
+                    {{ resumenIndexSelected()!.data.info.trading ? 'Sí' : 'No' }}
+                  </span>
+                </div>
+                <div class="flex justify-between items-center py-1">
+                  <span class="text-sm text-gray-400 dark:text-gray-400 font-medium"
+                    >Cotización</span
+                  >
+                  <span class="text-sm font-semibold">
+                    {{ resumenIndexSelected()!.data.info.exchangeRate | number: '1.2-2' }}
+                  </span>
+                </div>
+              </div>
+            }
+          </p-tabpanel>
+        </p></p-tabpanel
+      >
+    </p-tabpanels>
+  </p-tabs>
+</div>

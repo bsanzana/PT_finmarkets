@@ -1,7 +1,30 @@
-<div class="bg-gray-50  dark:bg-gray-900 dark:text-gray-300">
+<div class="bg-gray-50 dark:bg-gray-900 dark:text-gray-300 min-h-screen">
+  <!-- SearchBar - full width superior -->
+  <app-search-bar></app-search-bar>
 
-    <main class="w-screen h-screen m-0 p-0">
-      <app-search-bar></app-search-bar>
-    </main>
+  <main class="max-w-7xl mx-auto p-4">
+    <!-- Header y Summary en grid responsive -->
+    <div class="grid grid-cols-1 lg:grid-cols-4 gap-4 mb-6">
+      <!-- Header ocupa 3 columnas en pantallas grandes, full width en móviles -->
+      <div class="lg:col-span-3">
+        <app-header></app-header>
+      </div>
 
+      <!-- Summary ocupa 1 columna en pantallas grandes, se va abajo en móviles -->
+      <div class="lg:col-span-1">
+        <app-summary></app-summary>
+      </div>
+    </div>
+
+    <!-- Chart y Tabs ocupan todo el ancho -->
+    <div class="space-y-4 mb-6">
+      <!-- <app-chart></app-chart>
+      <app-tab></app-tab> -->
+    </div>
+
+    <!-- Lista de instrumentos - full width -->
+    <div>
+      <!-- <app-instrument-list></app-instrument-list> -->
+    </div>
+  </main>
 </div>
