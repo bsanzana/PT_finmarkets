@@ -141,3 +141,4 @@ pt-finmarkets/pnpm-lock.yaml
 pt-finmarkets/.editorconfig
 .vscode/extensions.json
 .DS_Store
+.vscode/settings.json
