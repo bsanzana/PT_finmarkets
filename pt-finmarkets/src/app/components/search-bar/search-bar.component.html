@@ -1,0 +1,25 @@
+<div class="card flex justify-center p-5">
+  <form class="w-full">
+    <div class="card flex justify-center items-center gap-2">
+      <i class="pi pi-search" style="font-size: 1.5rem"></i>
+      <p-select
+        [options]="indexes"
+        [(ngModel)]="selectedIndex"
+        optionLabel="name"
+        [filter]="true"
+        filterBy="name"
+        [showClear]="true"
+        placeholder="Busca un instrumento"
+        class="w-full dark:text-gray-300"
+        name="searchIndex"
+        (onChange)="onIndexChange($event.value)"
+      >
+        <ng-template let-index #item>
+          <div class="flex items-center gap-2">
+            <div>{{ index.name }}</div>
+          </div>
+        </ng-template>
+      </p-select>
+    </div>
+  </form>
+</div>
