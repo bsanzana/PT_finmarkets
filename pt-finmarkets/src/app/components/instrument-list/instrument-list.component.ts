@@ -39,8 +39,8 @@ export class InstrumentListComponent {
       .getConstituents(this.indexSelected()!.replace(/^constituents-/, ''))
       .subscribe({
         next: (res) => {
-          console.log(res);
           this.constituents.set(res.data.constituents);
+          console.log(this.constituents());
           this.error.set(false);
         },
         error: (error: any) => {
