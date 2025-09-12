@@ -32,7 +32,6 @@ export class TabComponent implements OnInit {
 
   constructor() {
     effect(() => {
-      console.log('Active tab changed to:', this.activeTab());
       this.loadData();
     });
   }

@@ -6,24 +6,29 @@ import { By } from '@angular/platform-browser';
 import { SelectButtonModule } from 'primeng/selectbutton';
 import { FormsModule } from '@angular/forms';
 import { HistoryService } from '../../services/history.service';
+import { Index } from '../../interfaces/index.interface';
 
 describe('SearchBarComponent', () => {
+  let component: SearchBarComponent;
+  let fixture: ComponentFixture<SearchBarComponent>;
+  let historyService: HistoryService;
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [SearchBarComponent, FormsModule, SelectButtonModule],
-      providers: [provideZonelessChangeDetection(), provideHttpClient()],
+      providers: [provideZonelessChangeDetection(), provideHttpClient(), HistoryService],
     }).compileComponents();
+
+    fixture = TestBed.createComponent(SearchBarComponent);
+    component = fixture.componentInstance;
+    historyService = TestBed.inject(HistoryService);
+    fixture.detectChanges();
   });
 
-  it('should create the search bar', () => {
-    const fixture = TestBed.createComponent(SearchBarComponent);
-    const app = fixture.componentInstance;
-    expect(app).toBeTruthy();
-  });
-
-  it('should render SelectButton', () => {
-    const fixture = TestBed.createComponent(SearchBarComponent);
-    const selectBtn = fixture.debugElement.query(By.css('p-selectbutton, p-select'));
-    expect(selectBtn).toBeTruthy();
+  it('Al cambiar el índice, se debe propagar el cambio al servicio', () => {
+    const nuevo: Index = { name: 'BCI', path: 'history-BCI.json' };
+    const spy = spyOn(historyService.selectedIndex, 'set').and.callThrough();
+    component.onIndexChange(nuevo);
+    expect(spy).toHaveBeenCalledOnceWith(nuevo);
+    expect(historyService.selectedIndex()).toEqual(nuevo);
   });
 });
