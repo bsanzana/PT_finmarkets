@@ -16,7 +16,7 @@ import { ProgressSpinnerModule } from 'primeng/progressspinner';
 
 @Component({
   selector: 'app-instrument-list',
-  imports: [CommonModule, TableModule, Message, ProgressSpinnerModule],
+  imports: [CommonModule, TableModule, ProgressSpinnerModule],
   templateUrl: './instrument-list.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
