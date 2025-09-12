@@ -13,7 +13,10 @@
         <p class="m-0">
           @switch (activeTab()) {
             @case ('0') {
-              <app-instrument-list indexSelected="IPSA"></app-instrument-list>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <app-instrument-list [data]="leftData()"></app-instrument-list>
+                <app-instrument-list [data]="rightData()"></app-instrument-list>
+              </div>
             }
             @case ('1') {
               <app-instrument-list indexSelected="IGPA"></app-instrument-list>

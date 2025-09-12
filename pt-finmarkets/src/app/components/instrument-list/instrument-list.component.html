@@ -1,28 +1,100 @@
 <div class="card">
-  @if (constituents().length > 1) {
-    <p-table [value]="constituents()" [tableStyle]="{ 'min-width': '60rem' }">
-      <ng-template #header>
-        <tr>
-          <th pSortableColumn="name" style="width: 20%">
-            <div class="flex items-center gap-2">
-              Nombre
-              <p-sortIcon field="name" />
-            </div>
-          </th>
-        </tr>
-      </ng-template>
+  <p-table [value]="data()" [tableStyle]="{ 'min-width': '60rem' }">
+    <ng-template #header>
+      <tr>
+        <th pSortableColumn="name" style="width: 20%">
+          <div class="flex items-center gap-2">
+            Nombre
+            <p-sortIcon field="name" />
+          </div>
+        </th>
 
-      <ng-template #body let-constituent>
-        <tr>
-          <td>{{ constituent.name }}</td>
-        </tr>
-      </ng-template>
-    </p-table>
-  } @else {
-    @if (error()) {
-      <p-message severity="error" text="Error al cargar los datos."></p-message>
-    } @else {
-      <p-progressSpinner></p-progressSpinner>
-    }
-  }
+        <th pSortableColumn="lastPrice" style="width: 20%">
+          <div class="flex items-center gap-2">
+            Precio
+            <p-sortIcon field="lastPrice" />
+          </div>
+        </th>
+
+        <th pSortableColumn="pctDay" style="width: 20%">
+          <div class="flex items-center gap-2">
+            Var día
+            <p-sortIcon field="pctDay" />
+          </div>
+        </th>
+        <th pSortableColumn="pct30D" style="width: 20%">
+          <div class="flex items-center gap-2">
+            Var 30d
+            <p-sortIcon field="pct30D" />
+          </div>
+        </th>
+        <th pSortableColumn="pctCY" style="width: 20%">
+          <div class="flex items-center gap-2">
+            Año actual
+            <p-sortIcon field="pctCY" />
+          </div>
+        </th>
+
+        <th pSortableColumn="pct1Y" style="width: 20%">
+          <div class="flex items-center gap-2">
+            12 meses
+            <p-sortIcon field="pct1Y" />
+          </div>
+        </th>
+      </tr>
+    </ng-template>
+
+    <ng-template #body let-constituent>
+      <tr>
+        <td class="text-left">{{ constituent.name }}</td>
+        <td class="text-right">
+          {{ constituent.lastPrice }}
+        </td>
+        <td class="text-right">
+          <span
+            [class]="
+              constituent.pctDay >= 0
+                ? 'text-green-600 dark:text-green-400'
+                : 'text-red-600 dark:text-red-400'
+            "
+          >
+            {{ constituent.pctDay | number }}%</span
+          >
+        </td>
+        <td class="text-right">
+          <span
+            [class]="
+              constituent.pct30D >= 0
+                ? 'text-green-600 dark:text-green-400'
+                : 'text-red-600 dark:text-red-400'
+            "
+          >
+            {{ constituent.pct30D | number }}%</span
+          >
+        </td>
+        <td class="text-right">
+          <span
+            [class]="
+              constituent.pct30D >= 0
+                ? 'text-green-600 dark:text-green-400'
+                : 'text-red-600 dark:text-red-400'
+            "
+          >
+            {{ constituent.pctCY | number }}%</span
+          >
+        </td>
+        <td class="text-right">
+          <span
+            [class]="
+              constituent.pct30D >= 0
+                ? 'text-green-600 dark:text-green-400'
+                : 'text-red-600 dark:text-red-400'
+            "
+          >
+            {{ constituent.pct1Y | number }}%</span
+          >
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
 </div>
