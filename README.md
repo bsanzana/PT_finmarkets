@@ -1,6 +1,6 @@
 # Prueba técnica finmarkets
 
-## preguntas con requisitos
+## preguntas de los requerimientos
 
 1.  Parece que faltó archivos de constituyentes, entendi que eso era los tabs IPSA, IGPA,etc.. y solo viene uno. Entonces si se hace clic en los tabs solo funciona IPSA, los otros no tienen datos.
 
