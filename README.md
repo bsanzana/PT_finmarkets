@@ -11,7 +11,9 @@
 ## Tareas pendientes
 
 1.  hacer testings
-2.  mejorar el responsive, el light mode
+    - Hice el unitario del search bar y como afecta al servicio
+    - Integración entre el cambio del search bar y como afecta al titulo del header
+2.  mejorar el responsive, el light mode (cuidado con los ojos en este modo jeje)
 
 ## Como instalar
 
