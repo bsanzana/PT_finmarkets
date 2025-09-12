@@ -11,14 +11,15 @@
       class="text-gray-200"
       (onChange)="onChangeChart()"
     />
-
-    <p-datepicker
-      [(ngModel)]="rangeDates"
-      selectionMode="range"
-      [iconDisplay]="'input'"
-      [showIcon]="true"
-      inputId="icondisplay"
-    >
-    </p-datepicker>
+    <div class="ml-2">
+      <p-datepicker
+        [(ngModel)]="rangeDates"
+        selectionMode="range"
+        [iconDisplay]="'input'"
+        [showIcon]="true"
+        inputId="icondisplay"
+      >
+      </p-datepicker>
+    </div>
   </div>
 </div>
